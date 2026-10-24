@@ -1,0 +1,12 @@
+# 本地运行/临时文件，不提交
+tools/
+logs/
+__pycache__/
+*.pyc
+dist/
+index.html
+preview.png
+data/site_data.json
+data/access_url.txt
+data/public_url.txt
+data/cloudflared.log
