@@ -1,0 +1,1987 @@
+{
+ "game": "dlt",
+ "source": "中国体育彩票官网 webapi.sporttery.cn",
+ "fetched_at": "2026-10-24 17:49:44",
+ "draws": [
+  {
+   "issue": "26120",
+   "date": "2026-10-21",
+   "fronts": [
+    1,
+    6,
+    10,
+    15,
+    32
+   ],
+   "backs": [
+    3,
+    4
+   ],
+   "sales": 314954142,
+   "pool": 825893883,
+   "first_count": 3,
+   "first_amount": 10000000,
+   "second_count": 73,
+   "second_amount": 303750,
+   "content": ""
+  },
+  {
+   "issue": "26119",
+   "date": "2026-10-19",
+   "fronts": [
+    3,
+    6,
+    20,
+    24,
+    32
+   ],
+   "backs": [
+    4,
+    7
+   ],
+   "sales": 304050337,
+   "pool": 824436634,
+   "first_count": 3,
+   "first_amount": 9909522,
+   "second_count": 82,
+   "second_amount": 162664,
+   "content": ""
+  },
+  {
+   "issue": "26118",
+   "date": "2026-10-17",
+   "fronts": [
+    2,
+    9,
+    21,
+    26,
+    32
+   ],
+   "backs": [
+    6,
+    12
+   ],
+   "sales": 316189166,
+   "pool": 796723787,
+   "first_count": 2,
+   "first_amount": 10000000,
+   "second_count": 96,
+   "second_amount": 185066,
+   "content": ""
+  },
+  {
+   "issue": "26117",
+   "date": "2026-10-14",
+   "fronts": [
+    4,
+    13,
+    19,
+    29,
+    31
+   ],
+   "backs": [
+    2,
+    12
+   ],
+   "sales": 291650582,
+   "pool": 746384997,
+   "first_count": 10,
+   "first_amount": 5834813,
+   "second_count": 194,
+   "second_amount": 53634,
+   "content": ""
+  },
+  {
+   "issue": "26116",
+   "date": "2026-10-12",
+   "fronts": [
+    9,
+    18,
+    22,
+    25,
+    35
+   ],
+   "backs": [
+    1,
+    10
+   ],
+   "sales": 293575132,
+   "pool": 780428328,
+   "first_count": 2,
+   "first_amount": 10000000,
+   "second_count": 76,
+   "second_amount": 213000,
+   "content": ""
+  },
+  {
+   "issue": "26115",
+   "date": "2026-10-10",
+   "fronts": [
+    12,
+    20,
+    32,
+    33,
+    35
+   ],
+   "backs": [
+    6,
+    7
+   ],
+   "sales": 321291403,
+   "pool": 733972024,
+   "first_count": 10,
+   "first_amount": 6339312,
+   "second_count": 92,
+   "second_amount": 181232,
+   "content": ""
+  },
+  {
+   "issue": "26114",
+   "date": "2026-10-07",
+   "fronts": [
+    8,
+    12,
+    15,
+    29,
+    30
+   ],
+   "backs": [
+    9,
+    12
+   ],
+   "sales": 277888881,
+   "pool": 747810333,
+   "first_count": 5,
+   "first_amount": 7702634,
+   "second_count": 142,
+   "second_amount": 85822,
+   "content": ""
+  },
+  {
+   "issue": "26113",
+   "date": "2026-10-05",
+   "fronts": [
+    2,
+    4,
+    6,
+    10,
+    11
+   ],
+   "backs": [
+    1,
+    10
+   ],
+   "sales": 252968482,
+   "pool": 733622133,
+   "first_count": 37,
+   "first_amount": 2392344,
+   "second_count": 363,
+   "second_amount": 22428,
+   "content": ""
+  },
+  {
+   "issue": "26112",
+   "date": "2026-09-30",
+   "fronts": [
+    1,
+    3,
+    5,
+    10,
+    22
+   ],
+   "backs": [
+    3,
+    9
+   ],
+   "sales": 306396671,
+   "pool": 798649740,
+   "first_count": 6,
+   "first_amount": 8047843,
+   "second_count": 109,
+   "second_amount": 133482,
+   "content": ""
+  },
+  {
+   "issue": "26111",
+   "date": "2026-09-28",
+   "fronts": [
+    10,
+    11,
+    17,
+    26,
+    29
+   ],
+   "backs": [
+    1,
+    3
+   ],
+   "sales": 289057331,
+   "pool": 819506211,
+   "first_count": 7,
+   "first_amount": 6978221,
+   "second_count": 146,
+   "second_amount": 97326,
+   "content": ""
+  },
+  {
+   "issue": "26110",
+   "date": "2026-09-26",
+   "fronts": [
+    3,
+    24,
+    25,
+    26,
+    35
+   ],
+   "backs": [
+    7,
+    9
+   ],
+   "sales": 302677559,
+   "pool": 853999858,
+   "first_count": 6,
+   "first_amount": 7901705,
+   "second_count": 118,
+   "second_amount": 118598,
+   "content": ""
+  },
+  {
+   "issue": "26109",
+   "date": "2026-09-23",
+   "fronts": [
+    12,
+    14,
+    16,
+    27,
+    34
+   ],
+   "backs": [
+    4,
+    8
+   ],
+   "sales": 290272321,
+   "pool": 875294743,
+   "first_count": 1,
+   "first_amount": 10000000,
+   "second_count": 57,
+   "second_amount": 405500,
+   "content": ""
+  },
+  {
+   "issue": "26108",
+   "date": "2026-09-21",
+   "fronts": [
+    1,
+    5,
+    7,
+    21,
+    35
+   ],
+   "backs": [
+    1,
+    4
+   ],
+   "sales": 296206851,
+   "pool": 845758402,
+   "first_count": 3,
+   "first_amount": 10000000,
+   "second_count": 85,
+   "second_amount": 320463,
+   "content": ""
+  },
+  {
+   "issue": "26107",
+   "date": "2026-09-19",
+   "fronts": [
+    2,
+    5,
+    7,
+    14,
+    22
+   ],
+   "backs": [
+    4,
+    10
+   ],
+   "sales": 313508185,
+   "pool": 831053727,
+   "first_count": 3,
+   "first_amount": 10000000,
+   "second_count": 77,
+   "second_amount": 264830,
+   "content": ""
+  },
+  {
+   "issue": "26106",
+   "date": "2026-09-16",
+   "fronts": [
+    14,
+    17,
+    21,
+    25,
+    28
+   ],
+   "backs": [
+    4,
+    6
+   ],
+   "sales": 290236360,
+   "pool": 826970066,
+   "first_count": 3,
+   "first_amount": 10000000,
+   "second_count": 71,
+   "second_amount": 200438,
+   "content": ""
+  },
+  {
+   "issue": "26105",
+   "date": "2026-09-14",
+   "fronts": [
+    10,
+    14,
+    30,
+    33,
+    34
+   ],
+   "backs": [
+    9,
+    12
+   ],
+   "sales": 290941792,
+   "pool": 797986461,
+   "first_count": 3,
+   "first_amount": 9415460,
+   "second_count": 48,
+   "second_amount": 339276,
+   "content": ""
+  },
+  {
+   "issue": "26104",
+   "date": "2026-09-12",
+   "fronts": [
+    1,
+    6,
+    14,
+    15,
+    26
+   ],
+   "backs": [
+    8,
+    9
+   ],
+   "sales": 316250501,
+   "pool": 768328090,
+   "first_count": 7,
+   "first_amount": 6952434,
+   "second_count": 110,
+   "second_amount": 128072,
+   "content": ""
+  },
+  {
+   "issue": "26103",
+   "date": "2026-09-09",
+   "fronts": [
+    3,
+    16,
+    17,
+    32,
+    35
+   ],
+   "backs": [
+    2,
+    12
+   ],
+   "sales": 296391996,
+   "pool": 763164025,
+   "first_count": 3,
+   "first_amount": 10000000,
+   "second_count": 68,
+   "second_amount": 241603,
+   "content": ""
+  },
+  {
+   "issue": "26102",
+   "date": "2026-09-07",
+   "fronts": [
+    1,
+    3,
+    7,
+    27,
+    28
+   ],
+   "backs": [
+    6,
+    7
+   ],
+   "sales": 291295536,
+   "pool": 725321799,
+   "first_count": 1,
+   "first_amount": 10000000,
+   "second_count": 183,
+   "second_amount": 57598,
+   "content": ""
+  },
+  {
+   "issue": "26101",
+   "date": "2026-09-05",
+   "fronts": [
+    9,
+    11,
+    18,
+    26,
+    33
+   ],
+   "backs": [
+    9,
+    11
+   ],
+   "sales": 315133456,
+   "pool": 692723356,
+   "first_count": 10,
+   "first_amount": 5927001,
+   "second_count": 167,
+   "second_amount": 81242,
+   "content": ""
+  },
+  {
+   "issue": "26100",
+   "date": "2026-09-02",
+   "fronts": [
+    2,
+    6,
+    11,
+    15,
+    31
+   ],
+   "backs": [
+    7,
+    8
+   ],
+   "sales": 293430528,
+   "pool": 728785802,
+   "first_count": 6,
+   "first_amount": 6733541,
+   "second_count": 109,
+   "second_amount": 129804,
+   "content": ""
+  },
+  {
+   "issue": "26099",
+   "date": "2026-08-31",
+   "fronts": [
+    2,
+    17,
+    20,
+    29,
+    33
+   ],
+   "backs": [
+    8,
+    9
+   ],
+   "sales": 295696198,
+   "pool": 728556727,
+   "first_count": 4,
+   "first_amount": 8305500,
+   "second_count": 98,
+   "second_amount": 144001,
+   "content": ""
+  },
+  {
+   "issue": "26098",
+   "date": "2026-08-29",
+   "fronts": [
+    7,
+    9,
+    18,
+    19,
+    21
+   ],
+   "backs": [
+    2,
+    9
+   ],
+   "sales": 315878206,
+   "pool": 706544163,
+   "first_count": 15,
+   "first_amount": 5050505,
+   "second_count": 211,
+   "second_amount": 46996,
+   "content": ""
+  },
+  {
+   "issue": "26097",
+   "date": "2026-08-26",
+   "fronts": [
+    3,
+    10,
+    12,
+    20,
+    25
+   ],
+   "backs": [
+    1,
+    9
+   ],
+   "sales": 296031159,
+   "pool": 762988475,
+   "first_count": 7,
+   "first_amount": 6840926,
+   "second_count": 152,
+   "second_amount": 84016,
+   "content": ""
+  },
+  {
+   "issue": "26096",
+   "date": "2026-08-24",
+   "fronts": [
+    8,
+    9,
+    10,
+    11,
+    25
+   ],
+   "backs": [
+    4,
+    12
+   ],
+   "sales": 300992176,
+   "pool": 760346715,
+   "first_count": 9,
+   "first_amount": 6561952,
+   "second_count": 222,
+   "second_amount": 57893,
+   "content": ""
+  },
+  {
+   "issue": "26095",
+   "date": "2026-08-22",
+   "fronts": [
+    4,
+    6,
+    8,
+    10,
+    14
+   ],
+   "backs": [
+    4,
+    5
+   ],
+   "sales": 323275140,
+   "pool": 801693149,
+   "first_count": 6,
+   "first_amount": 7103866,
+   "second_count": 200,
+   "second_amount": 60688,
+   "content": ""
+  },
+  {
+   "issue": "26094",
+   "date": "2026-08-19",
+   "fronts": [
+    5,
+    14,
+    15,
+    17,
+    33
+   ],
+   "backs": [
+    1,
+    7
+   ],
+   "sales": 305764076,
+   "pool": 795085879,
+   "first_count": 3,
+   "first_amount": 8380751,
+   "second_count": 89,
+   "second_amount": 174914,
+   "content": ""
+  },
+  {
+   "issue": "26093",
+   "date": "2026-08-17",
+   "fronts": [
+    8,
+    10,
+    22,
+    26,
+    29
+   ],
+   "backs": [
+    3,
+    10
+   ],
+   "sales": 301981951,
+   "pool": 772986652,
+   "first_count": 10,
+   "first_amount": 5848781,
+   "second_count": 165,
+   "second_amount": 48915,
+   "content": ""
+  },
+  {
+   "issue": "26092",
+   "date": "2026-08-15",
+   "fronts": [
+    12,
+    16,
+    19,
+    29,
+    33
+   ],
+   "backs": [
+    7,
+    9
+   ],
+   "sales": 326419006,
+   "pool": 822403232,
+   "first_count": 4,
+   "first_amount": 9601645,
+   "second_count": 97,
+   "second_amount": 194094,
+   "content": ""
+  },
+  {
+   "issue": "26091",
+   "date": "2026-08-12",
+   "fronts": [
+    3,
+    4,
+    7,
+    12,
+    32
+   ],
+   "backs": [
+    1,
+    2
+   ],
+   "sales": 303722394,
+   "pool": 835359281,
+   "first_count": 3,
+   "first_amount": 10000000,
+   "second_count": 65,
+   "second_amount": 343183,
+   "content": ""
+  },
+  {
+   "issue": "26090",
+   "date": "2026-08-10",
+   "fronts": [
+    9,
+    14,
+    17,
+    19,
+    24
+   ],
+   "backs": [
+    2,
+    9
+   ],
+   "sales": 298321791,
+   "pool": 825721619,
+   "first_count": 2,
+   "first_amount": 10000000,
+   "second_count": 93,
+   "second_amount": 155846,
+   "content": ""
+  },
+  {
+   "issue": "26089",
+   "date": "2026-08-08",
+   "fronts": [
+    3,
+    7,
+    12,
+    14,
+    26
+   ],
+   "backs": [
+    5,
+    11
+   ],
+   "sales": 326458125,
+   "pool": 817996545,
+   "first_count": 3,
+   "first_amount": 9058951,
+   "second_count": 150,
+   "second_amount": 97508,
+   "content": ""
+  },
+  {
+   "issue": "26088",
+   "date": "2026-08-05",
+   "fronts": [
+    3,
+    9,
+    11,
+    24,
+    27
+   ],
+   "backs": [
+    5,
+    11
+   ],
+   "sales": 305815169,
+   "pool": 792266898,
+   "first_count": 2,
+   "first_amount": 9662603,
+   "second_count": 160,
+   "second_amount": 74485,
+   "content": ""
+  },
+  {
+   "issue": "26087",
+   "date": "2026-08-03",
+   "fronts": [
+    5,
+    10,
+    16,
+    24,
+    27
+   ],
+   "backs": [
+    4,
+    10
+   ],
+   "sales": 306098479,
+   "pool": 768406558,
+   "first_count": 9,
+   "first_amount": 6547013,
+   "second_count": 172,
+   "second_amount": 82652,
+   "content": ""
+  },
+  {
+   "issue": "26086",
+   "date": "2026-08-01",
+   "fronts": [
+    10,
+    11,
+    18,
+    22,
+    35
+   ],
+   "backs": [
+    6,
+    12
+   ],
+   "sales": 327985310,
+   "pool": 813207389,
+   "first_count": 2,
+   "first_amount": 10000000,
+   "second_count": 121,
+   "second_amount": 129265,
+   "content": ""
+  },
+  {
+   "issue": "26085",
+   "date": "2026-07-29",
+   "fronts": [
+    3,
+    4,
+    14,
+    28,
+    31
+   ],
+   "backs": [
+    5,
+    7
+   ],
+   "sales": 302145325,
+   "pool": 804161465,
+   "first_count": 2,
+   "first_amount": 10000000,
+   "second_count": 94,
+   "second_amount": 149583,
+   "content": ""
+  },
+  {
+   "issue": "26084",
+   "date": "2026-07-27",
+   "fronts": [
+    13,
+    25,
+    30,
+    32,
+    33
+   ],
+   "backs": [
+    4,
+    5
+   ],
+   "sales": 300483424,
+   "pool": 770490757,
+   "first_count": 8,
+   "first_amount": 6621689,
+   "second_count": 81,
+   "second_amount": 153450,
+   "content": ""
+  },
+  {
+   "issue": "26083",
+   "date": "2026-07-25",
+   "fronts": [
+    14,
+    15,
+    16,
+    23,
+    26
+   ],
+   "backs": [
+    7,
+    9
+   ],
+   "sales": 316550987,
+   "pool": 772867559,
+   "first_count": 8,
+   "first_amount": 7215569,
+   "second_count": 135,
+   "second_amount": 119029,
+   "content": ""
+  },
+  {
+   "issue": "26082",
+   "date": "2026-07-22",
+   "fronts": [
+    16,
+    26,
+    27,
+    28,
+    34
+   ],
+   "backs": [
+    2,
+    6
+   ],
+   "sales": 295623678,
+   "pool": 807119056,
+   "first_count": 5,
+   "first_amount": 8286251,
+   "second_count": 76,
+   "second_amount": 205390,
+   "content": ""
+  },
+  {
+   "issue": "26081",
+   "date": "2026-07-20",
+   "fronts": [
+    8,
+    16,
+    18,
+    24,
+    34
+   ],
+   "backs": [
+    9,
+    12
+   ],
+   "sales": 301607097,
+   "pool": 784468403,
+   "first_count": 5,
+   "first_amount": 8031396,
+   "second_count": 125,
+   "second_amount": 110123,
+   "content": ""
+  },
+  {
+   "issue": "26080",
+   "date": "2026-07-18",
+   "fronts": [
+    5,
+    10,
+    15,
+    21,
+    23
+   ],
+   "backs": [
+    7,
+    8
+   ],
+   "sales": 325550165,
+   "pool": 765513154,
+   "first_count": 10,
+   "first_amount": 6006451,
+   "second_count": 173,
+   "second_amount": 75312,
+   "content": ""
+  },
+  {
+   "issue": "26079",
+   "date": "2026-07-15",
+   "fronts": [
+    6,
+    8,
+    23,
+    26,
+    27
+   ],
+   "backs": [
+    5,
+    12
+   ],
+   "sales": 301975334,
+   "pool": 794651243,
+   "first_count": 5,
+   "first_amount": 6673829,
+   "second_count": 111,
+   "second_amount": 79445,
+   "content": ""
+  },
+  {
+   "issue": "26078",
+   "date": "2026-07-13",
+   "fronts": [
+    2,
+    13,
+    20,
+    25,
+    32
+   ],
+   "backs": [
+    8,
+    11
+   ],
+   "sales": 302935941,
+   "pool": 818797138,
+   "first_count": 5,
+   "first_amount": 8216073,
+   "second_count": 181,
+   "second_amount": 70136,
+   "content": ""
+  },
+  {
+   "issue": "26077",
+   "date": "2026-07-11",
+   "fronts": [
+    4,
+    14,
+    19,
+    24,
+    27
+   ],
+   "backs": [
+    6,
+    7
+   ],
+   "sales": 318922356,
+   "pool": 797164073,
+   "first_count": 2,
+   "first_amount": 9470883,
+   "second_count": 141,
+   "second_amount": 74426,
+   "content": ""
+  },
+  {
+   "issue": "26076",
+   "date": "2026-07-08",
+   "fronts": [
+    15,
+    20,
+    27,
+    28,
+    35
+   ],
+   "backs": [
+    2,
+    11
+   ],
+   "sales": 303115587,
+   "pool": 804904836,
+   "first_count": 4,
+   "first_amount": 10000000,
+   "second_count": 113,
+   "second_amount": 157623,
+   "content": ""
+  },
+  {
+   "issue": "26075",
+   "date": "2026-07-06",
+   "fronts": [
+    1,
+    6,
+    16,
+    18,
+    26
+   ],
+   "backs": [
+    4,
+    10
+   ],
+   "sales": 295227167,
+   "pool": 814593833,
+   "first_count": 3,
+   "first_amount": 10000000,
+   "second_count": 89,
+   "second_amount": 173463,
+   "content": ""
+  },
+  {
+   "issue": "26074",
+   "date": "2026-07-04",
+   "fronts": [
+    1,
+    4,
+    10,
+    23,
+    25
+   ],
+   "backs": [
+    1,
+    12
+   ],
+   "sales": 319733435,
+   "pool": 818314176,
+   "first_count": 6,
+   "first_amount": 7752365,
+   "second_count": 115,
+   "second_amount": 140052,
+   "content": ""
+  },
+  {
+   "issue": "26073",
+   "date": "2026-07-01",
+   "fronts": [
+    4,
+    10,
+    22,
+    23,
+    33
+   ],
+   "backs": [
+    2,
+    12
+   ],
+   "sales": 306363724,
+   "pool": 798037522,
+   "first_count": 6,
+   "first_amount": 8427733,
+   "second_count": 129,
+   "second_amount": 160748,
+   "content": ""
+  },
+  {
+   "issue": "26072",
+   "date": "2026-06-29",
+   "fronts": [
+    1,
+    13,
+    26,
+    29,
+    30
+   ],
+   "backs": [
+    9,
+    11
+   ],
+   "sales": 309759041,
+   "pool": 820383228,
+   "first_count": 5,
+   "first_amount": 8484040,
+   "second_count": 67,
+   "second_amount": 301895,
+   "content": ""
+  },
+  {
+   "issue": "26071",
+   "date": "2026-06-27",
+   "fronts": [
+    5,
+    13,
+    22,
+    26,
+    32
+   ],
+   "backs": [
+    2,
+    3
+   ],
+   "sales": 332658791,
+   "pool": 844492276,
+   "first_count": 1,
+   "first_amount": 10000000,
+   "second_count": 179,
+   "second_amount": 123704,
+   "content": ""
+  },
+  {
+   "issue": "26070",
+   "date": "2026-06-24",
+   "fronts": [
+    4,
+    5,
+    15,
+    21,
+    32
+   ],
+   "backs": [
+    2,
+    11
+   ],
+   "sales": 312722588,
+   "pool": 814894461,
+   "first_count": 1,
+   "first_amount": 10000000,
+   "second_count": 112,
+   "second_amount": 142147,
+   "content": ""
+  },
+  {
+   "issue": "26069",
+   "date": "2026-06-22",
+   "fronts": [
+    12,
+    19,
+    21,
+    24,
+    29
+   ],
+   "backs": [
+    3,
+    10
+   ],
+   "sales": 312134107,
+   "pool": 757966457,
+   "first_count": 8,
+   "first_amount": 7110906,
+   "second_count": 98,
+   "second_amount": 201724,
+   "content": ""
+  },
+  {
+   "issue": "26068",
+   "date": "2026-06-20",
+   "fronts": [
+    3,
+    11,
+    12,
+    21,
+    22
+   ],
+   "backs": [
+    6,
+    10
+   ],
+   "sales": 333899407,
+   "pool": 802145380,
+   "first_count": 5,
+   "first_amount": 7366555,
+   "second_count": 212,
+   "second_amount": 57893,
+   "content": ""
+  },
+  {
+   "issue": "26067",
+   "date": "2026-06-17",
+   "fronts": [
+    6,
+    16,
+    18,
+    19,
+    28
+   ],
+   "backs": [
+    7,
+    11
+   ],
+   "sales": 322509643,
+   "pool": 791339917,
+   "first_count": 6,
+   "first_amount": 7300268,
+   "second_count": 158,
+   "second_amount": 79968,
+   "content": ""
+  },
+  {
+   "issue": "26066",
+   "date": "2026-06-15",
+   "fronts": [
+    10,
+    13,
+    19,
+    21,
+    30
+   ],
+   "backs": [
+    4,
+    5
+   ],
+   "sales": 352461614,
+   "pool": 817519004,
+   "first_count": 2,
+   "first_amount": 10000000,
+   "second_count": 106,
+   "second_amount": 194605,
+   "content": ""
+  },
+  {
+   "issue": "26065",
+   "date": "2026-06-13",
+   "fronts": [
+    4,
+    11,
+    12,
+    13,
+    25
+   ],
+   "backs": [
+    4,
+    8
+   ],
+   "sales": 361984211,
+   "pool": 802840285,
+   "first_count": 6,
+   "first_amount": 7598219,
+   "second_count": 189,
+   "second_amount": 77875,
+   "content": ""
+  },
+  {
+   "issue": "26064",
+   "date": "2026-06-10",
+   "fronts": [
+    3,
+    13,
+    15,
+    17,
+    21
+   ],
+   "backs": [
+    2,
+    7
+   ],
+   "sales": 352495130,
+   "pool": 787631261,
+   "first_count": 4,
+   "first_amount": 8286328,
+   "second_count": 103,
+   "second_amount": 154532,
+   "content": ""
+  },
+  {
+   "issue": "26063",
+   "date": "2026-06-08",
+   "fronts": [
+    3,
+    15,
+    20,
+    29,
+    31
+   ],
+   "backs": [
+    1,
+    12
+   ],
+   "sales": 353853854,
+   "pool": 762261291,
+   "first_count": 5,
+   "first_amount": 7715951,
+   "second_count": 79,
+   "second_amount": 274025,
+   "content": ""
+  },
+  {
+   "issue": "26062",
+   "date": "2026-06-06",
+   "fronts": [
+    7,
+    15,
+    20,
+    24,
+    29
+   ],
+   "backs": [
+    4,
+    10
+   ],
+   "sales": 397538816,
+   "pool": 738675961,
+   "first_count": 15,
+   "first_amount": 5747126,
+   "second_count": 304,
+   "second_amount": 55984,
+   "content": ""
+  },
+  {
+   "issue": "26061",
+   "date": "2026-06-03",
+   "fronts": [
+    10,
+    12,
+    26,
+    31,
+    35
+   ],
+   "backs": [
+    2,
+    12
+   ],
+   "sales": 354547009,
+   "pool": 807705563,
+   "first_count": 4,
+   "first_amount": 10000000,
+   "second_count": 114,
+   "second_amount": 160534,
+   "content": ""
+  },
+  {
+   "issue": "26060",
+   "date": "2026-06-01",
+   "fronts": [
+    22,
+    28,
+    30,
+    31,
+    34
+   ],
+   "backs": [
+    1,
+    5
+   ],
+   "sales": 364299680,
+   "pool": 769160539,
+   "first_count": 37,
+   "first_amount": 2645502,
+   "second_count": 98,
+   "second_amount": 319459,
+   "content": ""
+  },
+  {
+   "issue": "26059",
+   "date": "2026-05-30",
+   "fronts": [
+    6,
+    13,
+    17,
+    19,
+    26
+   ],
+   "backs": [
+    7,
+    8
+   ],
+   "sales": 373161795,
+   "pool": 818749861,
+   "first_count": 3,
+   "first_amount": 10000000,
+   "second_count": 269,
+   "second_amount": 56494,
+   "content": ""
+  },
+  {
+   "issue": "26058",
+   "date": "2026-05-27",
+   "fronts": [
+    7,
+    12,
+    13,
+    18,
+    34
+   ],
+   "backs": [
+    1,
+    5
+   ],
+   "sales": 354634349,
+   "pool": 786536913,
+   "first_count": 5,
+   "first_amount": 9961936,
+   "second_count": 118,
+   "second_amount": 209761,
+   "content": ""
+  },
+  {
+   "issue": "26057",
+   "date": "2026-05-25",
+   "fronts": [
+    23,
+    25,
+    26,
+    27,
+    34
+   ],
+   "backs": [
+    4,
+    10
+   ],
+   "sales": 341310042,
+   "pool": 801147297,
+   "first_count": 4,
+   "first_amount": 9617059,
+   "second_count": 158,
+   "second_amount": 113112,
+   "content": ""
+  },
+  {
+   "issue": "26056",
+   "date": "2026-05-23",
+   "fronts": [
+    6,
+    7,
+    18,
+    21,
+    30
+   ],
+   "backs": [
+    1,
+    5
+   ],
+   "sales": 368991091,
+   "pool": 767589409,
+   "first_count": 6,
+   "first_amount": 7155614,
+   "second_count": 151,
+   "second_amount": 114339,
+   "content": ""
+  },
+  {
+   "issue": "26055",
+   "date": "2026-05-20",
+   "fronts": [
+    9,
+    10,
+    20,
+    33,
+    35
+   ],
+   "backs": [
+    4,
+    11
+   ],
+   "sales": 348746645,
+   "pool": 757078646,
+   "first_count": 4,
+   "first_amount": 10000000,
+   "second_count": 83,
+   "second_amount": 232027,
+   "content": ""
+  },
+  {
+   "issue": "26054",
+   "date": "2026-05-18",
+   "fronts": [
+    2,
+    6,
+    14,
+    22,
+    24
+   ],
+   "backs": [
+    8,
+    11
+   ],
+   "sales": 349381748,
+   "pool": 718927617,
+   "first_count": 13,
+   "first_amount": 6280305,
+   "second_count": 101,
+   "second_amount": 187940,
+   "content": ""
+  },
+  {
+   "issue": "26053",
+   "date": "2026-05-16",
+   "fronts": [
+    2,
+    9,
+    14,
+    20,
+    31
+   ],
+   "backs": [
+    5,
+    9
+   ],
+   "sales": 374349995,
+   "pool": 738749152,
+   "first_count": 14,
+   "first_amount": 4901960,
+   "second_count": 133,
+   "second_amount": 97647,
+   "content": ""
+  },
+  {
+   "issue": "26052",
+   "date": "2026-05-13",
+   "fronts": [
+    2,
+    3,
+    20,
+    28,
+    33
+   ],
+   "backs": [
+    2,
+    12
+   ],
+   "sales": 353399952,
+   "pool": 782179260,
+   "first_count": 9,
+   "first_amount": 6295115,
+   "second_count": 201,
+   "second_amount": 63296,
+   "content": ""
+  },
+  {
+   "issue": "26051",
+   "date": "2026-05-11",
+   "fronts": [
+    13,
+    18,
+    28,
+    32,
+    33
+   ],
+   "backs": [
+    2,
+    11
+   ],
+   "sales": 355675446,
+   "pool": 799348751,
+   "first_count": 4,
+   "first_amount": 9612284,
+   "second_count": 135,
+   "second_amount": 137851,
+   "content": ""
+  },
+  {
+   "issue": "26050",
+   "date": "2026-05-09",
+   "fronts": [
+    6,
+    10,
+    14,
+    23,
+    33
+   ],
+   "backs": [
+    8,
+    10
+   ],
+   "sales": 373660843,
+   "pool": 812279268,
+   "first_count": 6,
+   "first_amount": 8052622,
+   "second_count": 97,
+   "second_amount": 215818,
+   "content": ""
+  },
+  {
+   "issue": "26049",
+   "date": "2026-05-06",
+   "fronts": [
+    1,
+    6,
+    14,
+    15,
+    17
+   ],
+   "backs": [
+    2,
+    3
+   ],
+   "sales": 298483726,
+   "pool": 786081563,
+   "first_count": 6,
+   "first_amount": 7126897,
+   "second_count": 69,
+   "second_amount": 183708,
+   "content": ""
+  },
+  {
+   "issue": "26048",
+   "date": "2026-05-04",
+   "fronts": [
+    11,
+    17,
+    20,
+    23,
+    35
+   ],
+   "backs": [
+    1,
+    10
+   ],
+   "sales": 276914543,
+   "pool": 778139138,
+   "first_count": 7,
+   "first_amount": 6806380,
+   "second_count": 87,
+   "second_amount": 175445,
+   "content": ""
+  },
+  {
+   "issue": "26047",
+   "date": "2026-05-02",
+   "fronts": [
+    9,
+    20,
+    21,
+    23,
+    28
+   ],
+   "backs": [
+    6,
+    11
+   ],
+   "sales": 301530437,
+   "pool": 776088008,
+   "first_count": 5,
+   "first_amount": 7415209,
+   "second_count": 97,
+   "second_amount": 139095,
+   "content": ""
+  },
+  {
+   "issue": "26046",
+   "date": "2026-04-29",
+   "fronts": [
+    1,
+    13,
+    18,
+    27,
+    33
+   ],
+   "backs": [
+    4,
+    7
+   ],
+   "sales": 305905116,
+   "pool": 801117818,
+   "first_count": 6,
+   "first_amount": 6930508,
+   "second_count": 84,
+   "second_amount": 201825,
+   "content": ""
+  },
+  {
+   "issue": "26045",
+   "date": "2026-04-27",
+   "fronts": [
+    1,
+    15,
+    21,
+    26,
+    33
+   ],
+   "backs": [
+    4,
+    7
+   ],
+   "sales": 309445116,
+   "pool": 795611859,
+   "first_count": 7,
+   "first_amount": 6675078,
+   "second_count": 86,
+   "second_amount": 181174,
+   "content": ""
+  },
+  {
+   "issue": "26044",
+   "date": "2026-04-25",
+   "fronts": [
+    3,
+    8,
+    22,
+    26,
+    29
+   ],
+   "backs": [
+    7,
+    10
+   ],
+   "sales": 333443770,
+   "pool": 796949218,
+   "first_count": 8,
+   "first_amount": 6329954,
+   "second_count": 168,
+   "second_amount": 58053,
+   "content": ""
+  },
+  {
+   "issue": "26043",
+   "date": "2026-04-22",
+   "fronts": [
+    8,
+    12,
+    14,
+    19,
+    22
+   ],
+   "backs": [
+    11,
+    12
+   ],
+   "sales": 308301370,
+   "pool": 835097420,
+   "first_count": 1,
+   "first_amount": 10000000,
+   "second_count": 86,
+   "second_amount": 169385,
+   "content": ""
+  },
+  {
+   "issue": "26042",
+   "date": "2026-04-20",
+   "fronts": [
+    2,
+    7,
+    13,
+    19,
+    24
+   ],
+   "backs": [
+    3,
+    8
+   ],
+   "sales": 311873981,
+   "pool": 783361004,
+   "first_count": 5,
+   "first_amount": 7688311,
+   "second_count": 260,
+   "second_amount": 53840,
+   "content": ""
+  },
+  {
+   "issue": "26041",
+   "date": "2026-04-18",
+   "fronts": [
+    24,
+    25,
+    27,
+    29,
+    34
+   ],
+   "backs": [
+    2,
+    6
+   ],
+   "sales": 342918690,
+   "pool": 804564900,
+   "first_count": 6,
+   "first_amount": 8170700,
+   "second_count": 94,
+   "second_amount": 230708,
+   "content": ""
+  },
+  {
+   "issue": "26040",
+   "date": "2026-04-15",
+   "fronts": [
+    6,
+    12,
+    13,
+    21,
+    34
+   ],
+   "backs": [
+    8,
+    9
+   ],
+   "sales": 322412866,
+   "pool": 776038688,
+   "first_count": 6,
+   "first_amount": 7492423,
+   "second_count": 118,
+   "second_amount": 125628,
+   "content": ""
+  },
+  {
+   "issue": "26039",
+   "date": "2026-04-13",
+   "fronts": [
+    9,
+    11,
+    20,
+    26,
+    27
+   ],
+   "backs": [
+    6,
+    9
+   ],
+   "sales": 321747230,
+   "pool": 760888094,
+   "first_count": 11,
+   "first_amount": 5717710,
+   "second_count": 175,
+   "second_amount": 50714,
+   "content": ""
+  },
+  {
+   "issue": "26038",
+   "date": "2026-04-11",
+   "fronts": [
+    8,
+    17,
+    21,
+    33,
+    35
+   ],
+   "backs": [
+    6,
+    7
+   ],
+   "sales": 343632778,
+   "pool": 799997856,
+   "first_count": 2,
+   "first_amount": 10000000,
+   "second_count": 174,
+   "second_amount": 92288,
+   "content": ""
+  },
+  {
+   "issue": "26037",
+   "date": "2026-04-08",
+   "fronts": [
+    7,
+    12,
+    13,
+    28,
+    32
+   ],
+   "backs": [
+    6,
+    8
+   ],
+   "sales": 324524682,
+   "pool": 756781635,
+   "first_count": 5,
+   "first_amount": 8402519,
+   "second_count": 133,
+   "second_amount": 119807,
+   "content": ""
+  },
+  {
+   "issue": "26036",
+   "date": "2026-04-06",
+   "fronts": [
+    4,
+    7,
+    16,
+    26,
+    32
+   ],
+   "backs": [
+    5,
+    8
+   ],
+   "sales": 298882570,
+   "pool": 732445104,
+   "first_count": 9,
+   "first_amount": 6291520,
+   "second_count": 114,
+   "second_amount": 106441,
+   "content": ""
+  },
+  {
+   "issue": "26035",
+   "date": "2026-04-04",
+   "fronts": [
+    2,
+    22,
+    30,
+    33,
+    34
+   ],
+   "backs": [
+    8,
+    12
+   ],
+   "sales": 324023066,
+   "pool": 744740092,
+   "first_count": 11,
+   "first_amount": 6715340,
+   "second_count": 91,
+   "second_amount": 180483,
+   "content": ""
+  },
+  {
+   "issue": "26034",
+   "date": "2026-04-01",
+   "fronts": [
+    11,
+    12,
+    25,
+    26,
+    27
+   ],
+   "backs": [
+    8,
+    11
+   ],
+   "sales": 321281232,
+   "pool": 745020716,
+   "first_count": 6,
+   "first_amount": 6785341,
+   "second_count": 215,
+   "second_amount": 59275,
+   "content": ""
+  },
+  {
+   "issue": "26033",
+   "date": "2026-03-30",
+   "fronts": [
+    3,
+    5,
+    7,
+    9,
+    18
+   ],
+   "backs": [
+    2,
+    10
+   ],
+   "sales": 319640788,
+   "pool": 743671788,
+   "first_count": 12,
+   "first_amount": 5620374,
+   "second_count": 250,
+   "second_amount": 29556,
+   "content": ""
+  },
+  {
+   "issue": "26032",
+   "date": "2026-03-28",
+   "fronts": [
+    3,
+    4,
+    19,
+    26,
+    32
+   ],
+   "backs": [
+    1,
+    12
+   ],
+   "sales": 342713464,
+   "pool": 787204235,
+   "first_count": 6,
+   "first_amount": 8149825,
+   "second_count": 141,
+   "second_amount": 117451,
+   "content": ""
+  },
+  {
+   "issue": "26031",
+   "date": "2026-03-25",
+   "fronts": [
+    6,
+    8,
+    22,
+    29,
+    34
+   ],
+   "backs": [
+    5,
+    7
+   ],
+   "sales": 321190415,
+   "pool": 762397267,
+   "first_count": 9,
+   "first_amount": 7576500,
+   "second_count": 82,
+   "second_amount": 285678,
+   "content": ""
+  }
+ ]
+}
