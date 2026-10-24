@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>彩票号码期望值 · 每日参考</title>
+<style>
+:root{
+  --bg:#070a12; --card:rgba(255,255,255,.045); --line:rgba(255,255,255,.09);
+  --text:#e8ecf5; --muted:#8b93a7; --red:#ff4d5e; --red2:#ff7a45;
+  --blue:#4da3ff; --gold:#f7b733; --teal:#2fd6a3; --radius:20px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;
+  font-family:"Microsoft YaHei","PingFang SC",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(1000px 620px at 10% -10%, rgba(255,77,94,.18), transparent 60%),
+    radial-gradient(900px 600px at 100% 0%, rgba(77,163,255,.15), transparent 55%),
+    radial-gradient(900px 560px at 50% 118%, rgba(247,183,51,.10), transparent 60%);
+}
+a{color:inherit}
+.muted{color:var(--muted)}
+.site-header{
+  max-width:1240px;margin:0 auto;padding:30px 24px 10px;display:flex;
+  align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap;
+}
+.brand{display:flex;align-items:center;gap:14px}
+.logo{
+  width:46px;height:46px;border-radius:14px;display:grid;place-items:center;
+  font-weight:900;font-size:21px;color:#fff;
+  background:linear-gradient(135deg,#ff4d5e,#b8122b);
+  box-shadow:0 10px 26px -10px rgba(255,77,94,.8),inset 0 1px 0 rgba(255,255,255,.35);
+}
+.brand h1{margin:0;font-size:21px;letter-spacing:.5px}
+.brand p{margin:2px 0 0;font-size:12.5px;color:var(--muted)}
+.header-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:12.5px;color:var(--muted)}
+.header-meta b{color:#cfd6e6;font-weight:600}
+.pill{
+  padding:5px 12px;border-radius:999px;border:1px solid var(--line);
+  background:rgba(255,255,255,.04);display:inline-flex;align-items:center;gap:7px;
+}
+.pill.clickable{cursor:pointer;transition:border-color .2s,background .2s}
+.pill.clickable:hover{border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.08)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 10px var(--teal)}
+.dot.warn{background:var(--gold);box-shadow:0 0 10px var(--gold)}
+.dot.busy{background:var(--gold);box-shadow:0 0 10px var(--gold);animation:pulse 1.1s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.tabs{
+  position:sticky;top:0;z-index:30;margin-top:14px;
+  background:rgba(7,10,18,.78);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line);
+}
+.tabs-inner{max-width:1240px;margin:0 auto;padding:10px 24px;display:flex;gap:10px}
+.tabs button{
+  border:1px solid var(--line);background:transparent;color:#a9b1c4;
+  padding:8px 20px;border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;
+  transition:.2s;font-family:inherit;
+}
+.tabs button:hover{color:#fff;border-color:rgba(255,255,255,.25)}
+.tabs button.active{
+  color:#fff;border-color:transparent;
+  background:linear-gradient(135deg,#ff4d5e,#c2183a);
+  box-shadow:0 8px 22px -10px rgba(255,77,94,.9);
+}
+main{max-width:1240px;margin:0 auto;padding:22px 24px 40px}
+.panel{animation:fade .45s ease both}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.card{
+  position:relative;background:var(--card);border:1px solid var(--line);
+  border-radius:var(--radius);padding:22px;backdrop-filter:blur(10px);
+  box-shadow:0 24px 60px -40px rgba(0,0,0,.9);
+}
+.card::after{
+  content:"";position:absolute;left:10%;right:10%;top:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),transparent);
+}
+.hero{display:grid;grid-template-columns:1.02fr 1.28fr;gap:16px;margin-top:16px}
+.eyebrow{
+  font-size:12px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;
+  display:flex;align-items:center;gap:8px;margin-bottom:6px;
+}
+.eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--red);box-shadow:0 0 10px var(--red)}
+.cd-date{font-size:19px;font-weight:700;color:#fff}
+.cd-date span{color:var(--gold);font-size:15px;font-weight:600;margin-left:6px}
+.countdown{
+  font-family:"Consolas","SF Mono",ui-monospace,monospace;font-size:clamp(30px,4.4vw,52px);
+  font-weight:800;letter-spacing:2px;margin:8px 0 2px;
+  background:linear-gradient(180deg,#fff,#ffb2ba);-webkit-background-clip:text;background-clip:text;color:transparent;
+  font-variant-numeric:tabular-nums;white-space:nowrap;
+}
+.countdown small{font-size:13px;letter-spacing:0;margin-left:6px;color:var(--muted);-webkit-text-fill-color:var(--muted)}
+.cd-note{font-size:12px;color:var(--muted)}
+.cd-latest{margin-top:14px;padding-top:12px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--muted)}
+.latest-top{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.latest-issue{font-size:15px;font-weight:700;color:#fff}
+.latest-issue em{font-style:normal;color:var(--gold);margin-left:8px;font-size:13px;font-weight:600}
+.latest-date{font-size:12.5px;color:var(--muted)}
+.balls{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.hero .balls{margin:16px 0 6px;gap:11px}
+.ball{
+  width:42px;height:42px;border-radius:50%;display:grid;place-items:center;
+  font-weight:800;font-size:15.5px;font-variant-numeric:tabular-nums;color:#fff;
+  text-shadow:0 1px 3px rgba(0,0,0,.55);
+}
+.ball.red{background:radial-gradient(circle at 32% 24%,#ff9a9a,#e5344a 44%,#8d0c1d 100%);
+  box-shadow:inset 0 -7px 12px rgba(0,0,0,.35),0 8px 18px -8px rgba(229,52,74,.9)}
+.ball.blue{background:radial-gradient(circle at 32% 24%,#a9dbff,#2f7dea 45%,#123a8a 100%);
+  box-shadow:inset 0 -7px 12px rgba(0,0,0,.35),0 8px 18px -8px rgba(47,125,234,.9)}
+.ball.teal{background:radial-gradient(circle at 32% 24%,#a9ffe4,#12b183 45%,#0a5c46 100%);
+  box-shadow:inset 0 -7px 12px rgba(0,0,0,.35),0 8px 18px -8px rgba(18,177,131,.9)}
+.ball.sm{width:30px;height:30px;font-size:12.5px}
+.ball.xs{width:24px;height:24px;font-size:10.5px}
+.sep{color:var(--muted);font-weight:700;padding:0 2px;align-self:center;font-size:12px}
+.latest-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.latest-stat{background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:12px;padding:9px 11px}
+.latest-stat span{display:block;font-size:11px;color:var(--muted);margin-bottom:2px}
+.latest-stat b{font-size:14px;font-weight:700;color:#fff;white-space:nowrap}
+.latest-stat b.gold{color:var(--gold)}
+.section-head{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:38px 2px 8px}
+.section-head h2{margin:0;font-size:20px;letter-spacing:.3px;display:flex;align-items:center;gap:10px}
+.section-head h2 .bar{width:4px;height:20px;border-radius:3px;background:linear-gradient(180deg,#ff4d5e,#f7b733)}
+.hint{font-size:12px;color:var(--muted)}
+.section-sub{margin:0 2px 16px;font-size:12.5px;color:var(--muted);max-width:960px}
+.combos{display:grid;grid-template-columns:repeat(auto-fit,minmax(296px,1fr));gap:16px}
+.combo{
+  position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px 20px 16px;backdrop-filter:blur(10px);overflow:hidden;
+  transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease;
+}
+.combo:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.2)}
+.combo.top{border-color:rgba(247,183,51,.42);box-shadow:0 18px 50px -30px rgba(247,183,51,.55)}
+.combo .rank{
+  position:absolute;right:16px;top:6px;font-size:62px;font-weight:900;line-height:1;
+  color:rgba(255,255,255,.05);pointer-events:none;font-variant-numeric:tabular-nums;
+}
+.combo-head{display:flex;align-items:center;gap:10px;min-height:38px}
+.combo-badge{
+  font-size:11px;font-weight:700;letter-spacing:1px;color:#ffd9dd;
+  border:1px solid rgba(255,77,94,.35);background:rgba(255,77,94,.10);
+  padding:3px 10px;border-radius:999px;
+}
+.combo.top .combo-badge{color:#ffe6b0;border-color:rgba(247,183,51,.45);background:rgba(247,183,51,.12)}
+.score-wrap{display:flex;align-items:baseline;gap:6px}
+.score{
+  font-size:31px;font-weight:900;line-height:1;font-variant-numeric:tabular-nums;
+  background:linear-gradient(180deg,#fff,#ffb0b8);-webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.score-unit{font-size:11px;color:var(--muted)}
+.scorebar{height:4px;border-radius:99px;background:rgba(255,255,255,.07);margin:10px 0 4px;overflow:hidden}
+.scorebar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#ff4d5e,#f7b733)}
+.combo .balls{margin:12px 0 12px;gap:6px}
+.combo .ball{width:35px;height:35px;font-size:13.5px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.tag{font-size:11px;padding:3px 9px;border-radius:999px;background:rgba(255,255,255,.055);
+  border:1px solid rgba(255,255,255,.08);color:#c3cadb;white-space:nowrap}
+.combo-stat{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.combo details{margin-top:12px;border-top:1px solid var(--line);padding-top:10px}
+.combo summary{cursor:pointer;font-size:12px;color:#9aa3b8;list-style:none;display:flex;align-items:center;gap:6px}
+.combo summary::-webkit-details-marker{display:none}
+.combo summary::before{content:"+";display:inline-grid;place-items:center;width:16px;height:16px;border-radius:5px;
+  background:rgba(255,255,255,.07);font-size:12px}
+.combo details[open] summary::before{content:"−"}
+.combo details ul{margin:10px 0 0;padding-left:16px}
+.combo details li{font-size:12px;color:#aab2c6;margin-bottom:5px;line-height:1.65}
+.heat-card{margin-top:16px}
+.card-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.card-head h3{margin:0;font-size:16px}
+.card-head .muted{font-size:11.5px}
+.heat-label{font-size:11.5px;color:var(--muted);margin:6px 0 7px;letter-spacing:.5px}
+.heat{display:grid;grid-template-columns:repeat(auto-fill,minmax(46px,1fr));gap:6px}
+.heat.small{grid-template-columns:repeat(auto-fill,minmax(52px,1fr));max-width:560px}
+.hcell{
+  border-radius:10px;border:1px solid rgba(255,255,255,.07);padding:7px 2px 5px;
+  text-align:center;line-height:1.25;transition:transform .15s ease;
+}
+.hcell:hover{transform:translateY(-2px)}
+.hcell b{display:block;font-size:13px;font-variant-numeric:tabular-nums}
+.hcell s{display:block;text-decoration:none;font-size:9.5px;color:rgba(255,255,255,.55);font-variant-numeric:tabular-nums}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:11px;color:var(--muted);margin-top:12px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.grid2{display:grid;grid-template-columns:1.6fr 1fr;gap:16px;margin-top:16px}
+.chart-card svg{width:100%;height:auto;display:block}
+.omit-list{display:flex;flex-direction:column;gap:9px;margin-top:2px}
+.omit-row{display:flex;align-items:center;gap:9px;font-size:12px}
+.omit-num{width:28px;font-weight:700;color:#dbe1ee;font-variant-numeric:tabular-nums}
+.omit-bar{flex:1;height:7px;border-radius:99px;background:rgba(255,255,255,.06);overflow:hidden}
+.omit-bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,rgba(255,77,94,.5),#ff4d5e)}
+.omit-val{width:42px;text-align:right;color:var(--muted);font-variant-numeric:tabular-nums}
+.table-card{margin-top:16px}
+.table-wrap{overflow:auto;max-height:472px;border-radius:14px;border:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;font-size:12.5px;min-width:820px}
+thead th{
+  position:sticky;top:0;z-index:2;background:#101522;color:#9aa3b8;font-weight:600;
+  text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);white-space:nowrap;
+}
+tbody td{padding:9px 12px;border-bottom:1px solid rgba(255,255,255,.045);white-space:nowrap;color:#cfd6e6}
+tbody tr:hover td{background:rgba(255,255,255,.03)}
+tbody tr:last-child td{border-bottom:none}
+td.issue{font-weight:700;color:#fff;font-variant-numeric:tabular-nums}
+td.date{color:var(--muted);font-variant-numeric:tabular-nums}
+.nums{display:flex;gap:3px;align-items:center}
+td.money{font-variant-numeric:tabular-nums;color:#e7c987}
+.theory{margin-top:16px}
+.theory h3{margin:22px 0 10px;font-size:16px;display:flex;align-items:center;gap:8px}
+.theory h3:first-child{margin-top:0}
+.theory h3::before{content:"";width:3px;height:15px;border-radius:2px;background:linear-gradient(180deg,#ff4d5e,#f7b733)}
+.theory p{font-size:13px;color:#b9c1d2;margin:8px 0}
+.formula{
+  font-family:"Consolas",ui-monospace,monospace;font-size:12.5px;line-height:1.9;color:#9fd3ff;
+  background:#0a0e19;border:1px solid var(--line);border-radius:12px;padding:13px 15px;overflow:auto;
+  white-space:pre-line;
+}
+.ev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0 4px}
+.ev-box{background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:14px;padding:13px 15px}
+.ev-box span{display:block;font-size:11px;color:var(--muted);margin-bottom:3px}
+.ev-box b{font-size:22px;font-weight:800;color:#fff;font-variant-numeric:tabular-nums}
+.ev-box b.gold{color:var(--gold)}
+.ev-box b.teal{color:var(--teal)}
+.prize-table{width:100%;min-width:0;font-size:12px;margin-top:6px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.prize-table th{position:static;background:rgba(255,255,255,.04);padding:8px 11px;font-size:11.5px;color:#9aa3b8}
+.prize-table td{padding:7px 11px;border-bottom:1px solid rgba(255,255,255,.045);white-space:normal;color:#c6cddd}
+.prize-table tr:last-child td{border-bottom:none}
+.disclaimer{
+  margin-top:16px;border:1px solid rgba(247,183,51,.32);background:rgba(247,183,51,.065);
+  border-radius:14px;padding:14px 16px;font-size:12.5px;color:#f0d9a8;line-height:1.8;
+}
+.disclaimer b{color:#ffd98a}
+footer{
+  max-width:1240px;margin:0 auto;padding:26px 24px 40px;border-top:1px solid var(--line);
+  color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;
+}
+footer b{color:#cfd6e6}
+#lanUrl,#pubUrl{color:var(--gold);text-decoration:none;word-break:break-all}
+#lanUrl:hover,#pubUrl:hover{text-decoration:underline}
+.stale-banner{
+  margin-top:16px;border:1px solid rgba(255,77,94,.4);background:rgba(255,77,94,.09);
+  border-radius:14px;padding:12px 16px;font-size:12.5px;color:#ffc3c8;
+}
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .grid2{grid-template-columns:1fr}
+  .ev-grid{grid-template-columns:1fr}
+  .site-header{padding:22px 18px 6px}
+  main{padding:18px 18px 30px}
+  .tabs-inner{padding:8px 18px}
+  .latest-stats{grid-template-columns:1fr 1fr}
+  .table-wrap{max-height:420px}
+}
+@media (max-width:520px){
+  .combo .ball{width:34px;height:34px;font-size:13px}
+  .ball{width:36px;height:36px;font-size:13.5px}
+  .hero .balls{gap:7px}
+  .heat{grid-template-columns:repeat(auto-fill,minmax(40px,1fr))}
+  .countdown{font-size:30px;letter-spacing:1px}
+  .countdown small{display:block;margin:4px 0 0;font-size:12px}
+  .latest-stat b{white-space:normal}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="brand">
+    <div class="logo">彩</div>
+    <div>
+      <h1>号码期望值实验室</h1>
+      <p>近三个月开奖数据 · 统计建模 · 每日更新</p>
+    </div>
+  </div>
+  <div class="header-meta">
+    <span>数据更新 <b id="genTime">--</b></span>
+    <span class="pill clickable" id="netPill" title="点击手动重新联网更新"><i class="dot" id="netDot"></i><span id="netStatus">检查更新…</span></span>
+    <span class="pill"><i class="dot" id="ageDot"></i><span id="dataAge">--</span></span>
+  </div>
+</header>
+
+<nav class="tabs">
+  <div class="tabs-inner" id="tabs">
+    <button type="button" data-game="ssq">双色球</button>
+    <button type="button" data-game="dlt">超级大乐透</button>
+  </div>
+</nav>
+
+<main>
+  <div id="offlineBar" class="stale-banner" style="display:none;margin-bottom:16px"></div>
+  <div id="app"></div>
+</main>
+
+<footer>
+  <div>
+    <div id="lanRow" style="display:none">手机访问：<a id="lanUrl" href="#" target="_blank" rel="noopener">—</a>（需与电脑连同一 Wi-Fi）<br></div>
+    <div id="pubRow" style="display:none">公网分享：<a id="pubUrl" href="#" target="_blank" rel="noopener">—</a>（他人手机/电脑可直接打开）<br></div>
+    <div id="deployNote" style="display:none">云端部署：GitHub Pages · 数据定时自动更新（电脑关机也能看）<br></div>
+    数据来源：<b>中国福利彩票官网</b> · <b>中国体育彩票官网</b><br>
+    页面生成：<b id="footTime">--</b> ｜ 自动更新：<b id="footerMode">每次打开页面联网刷新</b><span id="footerExtra"> + 每日 09:05 兜底</span>
+  </div>
+  <div style="text-align:right">
+    手动更新：双击 <b>更新数据.bat</b><br>
+    理性购彩 · 量力而行 · 未满 18 周岁禁止购彩
+  </div>
+</footer>
+
+<noscript><p style="text-align:center;color:#ff9aa4">本页面需要启用 JavaScript 才能显示数据。</p></noscript>
+
+<script>window.__LOTTERY__ = __DATA_JSON__;</script>
+<script>
+(function(){
+  "use strict";
+  var DATA = window.__LOTTERY__;
+  var app = document.getElementById('app');
+  var currentGame = 'ssq';
+  var STATIC = !!window.__STATIC__;                       // GitHub Pages 静态部署模式
+  var DATA_URL = window.__DATA_URL__ || 'data/site_data.json';
+
+  function $(sel, el){ return (el || document).querySelector(sel); }
+  function pad2(n){ return String(n).padStart(2, '0'); }
+  function esc(s){ return String(s == null ? '' : s).replace(/[&<>"]/g, function(ch){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch];
+  }); }
+
+  function money(n){
+    if (!n) return '—';
+    if (n >= 1e8) return (n / 1e8).toFixed(2) + ' 亿';
+    if (n >= 1e4) return (n / 1e4).toFixed(1) + ' 万';
+    return Number(n).toLocaleString('zh-CN');
+  }
+  function yuan(n){
+    if (!n) return '—';
+    if (n >= 1e4) return '¥' + (n / 1e4).toFixed(1) + ' 万';
+    return '¥' + Number(n).toLocaleString('zh-CN');
+  }
+
+  function balls(nums, tone, size){
+    return nums.map(function(n){
+      return '<span class="ball ' + tone + (size ? ' ' + size : '') + '">' + pad2(n) + '</span>';
+    }).join('');
+  }
+
+  /* ---------------- 倒计时 ---------------- */
+  function tick(){
+    var el = $('.countdown');
+    if (!el) return;
+    var target = new Date(el.dataset.ts).getTime();
+    var diff = target - Date.now();
+    if (isNaN(target)) { el.textContent = '--'; return; }
+    if (diff <= 0) {
+      el.innerHTML = '已到开奖时间 <small>等待下一期数据</small>';
+      return;
+    }
+    var d = Math.floor(diff / 86400000);
+    var h = Math.floor(diff % 86400000 / 3600000);
+    var m = Math.floor(diff % 3600000 / 60000);
+    var s = Math.floor(diff % 60000 / 1000);
+    el.innerHTML = (d > 0 ? d + ' 天 ' : '') + pad2(h) + ':' + pad2(m) + ':' + pad2(s) +
+      ' <small>距下期开奖</small>';
+  }
+
+  /* ---------------- 各区块 ---------------- */
+  function latestCard(g){
+    var d = g.latest, isSSQ = g.key === 'ssq';
+    var nums = isSSQ
+      ? balls(d.reds, 'red') + '<span class="sep">+</span>' + balls([d.blue], 'blue')
+      : balls(d.fronts, 'red') + '<span class="sep">+</span>' + balls(d.backs, 'teal');
+    return '' +
+      '<div class="card">' +
+        '<div class="latest-top">' +
+          '<span class="latest-issue">第 ' + esc(d.issue) + ' 期<em>最新开奖</em></span>' +
+          '<span class="latest-date">' + esc(d.date) + '</span>' +
+        '</div>' +
+        '<div class="balls">' + nums + '</div>' +
+        '<div class="latest-stats">' +
+          '<div class="latest-stat"><span>一等奖</span><b class="gold">' + (d.first_count || 0) + ' 注 · ' + yuan(d.first_amount) + '</b></div>' +
+          '<div class="latest-stat"><span>本期销售</span><b>' + money(d.sales) + '</b></div>' +
+          '<div class="latest-stat"><span>奖池</span><b>' + money(d.pool) + '</b></div>' +
+        '</div>' +
+      '</div>';
+  }
+
+  function countdownCard(g){
+    var n = g.next;
+    if (!n) {
+      return '<div class="card"><div class="eyebrow">下一期</div>' +
+        '<div class="cd-date">等待数据更新</div>' +
+        '<div class="cd-note">请运行「更新数据.bat」获取最新一期开奖结果。</div></div>';
+    }
+    return '' +
+      '<div class="card">' +
+        '<div class="eyebrow">下一期 · 第 ' + esc(n.issue || '--') + ' 期 · ' + esc(n.weekday) + '</div>' +
+        '<div class="cd-date">' + esc(n.date) + '<span>' + esc(n.time) + '</span></div>' +
+        '<div class="countdown" data-ts="' + esc(n.timestamp) + '">--:--:--</div>' +
+        '<div class="cd-note">' + (n.days_left > 0 ? '还有 ' + n.days_left + ' 天' : '就是今天') + '，开奖后数据次日自动更新</div>' +
+        '<div class="cd-latest">数据截至第 ' + esc(g.latest.issue) + ' 期（' + esc(g.latest.date) + '）<br>' +
+          '窗口：' + esc(g.window.start) + ' ~ ' + esc(g.window.end) + ' · 共 ' + g.window.count + ' 期</div>' +
+      '</div>';
+  }
+
+  function comboCard(g, c, i){
+    var isSSQ = g.key === 'ssq';
+    var nums = isSSQ ? c.reds : c.fronts;
+    var extra = isSSQ ? [c.blue] : c.backs;
+    var extraTone = isSSQ ? 'blue' : 'teal';
+    var allBalls = balls(nums, 'red') + '<span class="sep">+</span>' + balls(extra, extraTone);
+    return '' +
+      '<article class="combo' + (i === 0 ? ' top' : '') + '">' +
+        '<span class="rank">' + pad2(i + 1) + '</span>' +
+        '<div class="combo-head">' +
+          '<span class="combo-badge">' + (i === 0 ? '本期首选' : '推荐 ' + pad2(i + 1)) + '</span>' +
+          '<span class="score-wrap"><b class="score">' + c.score.toFixed(1) + '</b><span class="score-unit">期望指数</span></span>' +
+        '</div>' +
+        '<div class="scorebar"><i style="width:' + Math.max(4, Math.min(100, c.score)) + '%"></i></div>' +
+        '<div class="balls">' + allBalls + '</div>' +
+        '<div class="tags">' + c.tags.map(function(t){ return '<span class="tag">' + esc(t) + '</span>'; }).join('') + '</div>' +
+        '<div class="combo-stat">和值 ' + c.sum + ' · 奇偶 ' + c.odd + ':' + c.even + ' · 三区 ' + c.zones.join(':') + ' · 跨度 ' + c.span + '</div>' +
+        '<details><summary>查看选号依据</summary><ul>' +
+          c.reasons.map(function(r){ return '<li>' + esc(r) + '</li>'; }).join('') +
+        '</ul></details>' +
+      '</article>';
+  }
+
+  function combosSection(g){
+    var st = g.stats;
+    return '' +
+      '<div class="section-head">' +
+        '<h2><span class="bar"></span>本期五组高期望值号码</h2>' +
+        '<span class="hint">期望指数 50 = 随机组合基准（本期基准 ' + st.baseline_score + '）</span>' +
+      '</div>' +
+      '<p class="section-sub">综合「近期热度 45% + 遗漏回补 35% + 重邻号关联 20%」打分，并过滤器结构（和值 / 奇偶 / 三区 / 跨度 / 连号）。开奖相互独立，组合仅供统计参考，不构成中奖承诺。</p>' +
+      '<div class="combos">' + g.combos.map(function(c, i){ return comboCard(g, c, i); }).join('') + '</div>';
+  }
+
+  function heatCell(s, tone){
+    var ratio = Math.max(0, Math.min(1, (s.hot - 0.30) / 1.55));
+    var alpha = (0.05 + 0.62 * ratio).toFixed(2);
+    var color = tone === 'red'
+      ? 'rgba(255,77,94,' + alpha + ')'
+      : 'rgba(77,163,255,' + alpha + ')';
+    return '<div class="hcell" style="background:' + color + '" title="' + pad2(s.n) + ' 号 · 近3月出现 ' + s.freq + ' 次 · 遗漏 ' + s.omit + ' 期 · 热度 ' + s.hot + '">' +
+      '<b>' + pad2(s.n) + '</b><s>' + s.freq + '次</s></div>';
+  }
+
+  function heatCard(g){
+    var isSSQ = g.key === 'ssq';
+    var main = isSSQ ? g.stats.red : g.stats.front;
+    var extra = isSSQ ? g.stats.blue : g.stats.back;
+    var mainLabel = isSSQ ? '红球 1–33（出现次数 / 遗漏）' : '前区 1–35（出现次数 / 遗漏）';
+    var extraLabel = isSSQ ? '蓝球 1–16' : '后区 1–12';
+    return '' +
+      '<div class="card heat-card">' +
+        '<div class="card-head"><h3>号码热度与遗漏</h3><span class="muted">颜色越亮 = 近期出现越频繁 · 小字为出现次数与遗漏期数</span></div>' +
+        '<div class="heat-label">' + mainLabel + '</div>' +
+        '<div class="heat">' + main.map(function(s){ return heatCell(s, 'red'); }).join('') + '</div>' +
+        '<div class="heat-label" style="margin-top:14px">' + extraLabel + '</div>' +
+        '<div class="heat small">' + extra.map(function(s){ return heatCell(s, 'blue'); }).join('') + '</div>' +
+        '<div class="legend">' +
+          '<span><i style="background:rgba(255,77,94,.72)"></i>热号（高频）</span>' +
+          '<span><i style="background:rgba(255,77,94,.16)"></i>冷号（低频）</span>' +
+          '<span><i style="background:rgba(77,163,255,.6)"></i>蓝/后区号码</span>' +
+        '</div>' +
+      '</div>';
+  }
+
+  function sumSvg(g){
+    var st = g.stats;
+    var sums = st.sums.slice().reverse();
+    var dates = g.draws.map(function(d){ return d.date; }).slice().reverse();
+    var W = 660, H = 240, L = 40, R = 18, T = 18, B = 30;
+    var lo = Math.floor((Math.min.apply(null, sums) - 10) / 10) * 10;
+    var hi = Math.ceil((Math.max.apply(null, sums) + 10) / 10) * 10;
+    if (hi === lo) hi = lo + 10;
+    var n = sums.length;
+    function X(i){ return L + (W - L - R) * i / Math.max(1, n - 1); }
+    function Y(v){ return T + (H - T - B) * (1 - (v - lo) / (hi - lo)); }
+
+    var path = '', area = '';
+    for (var i = 0; i < n; i++) {
+      var x = X(i).toFixed(1), y = Y(sums[i]).toFixed(1);
+      path += (i === 0 ? 'M' : 'L') + x + ',' + y;
+    }
+    area = path + 'L' + X(n - 1).toFixed(1) + ',' + (H - B) + 'L' + X(0).toFixed(1) + ',' + (H - B) + 'Z';
+
+    var grid = '';
+    for (var k = 0; k <= 4; k++) {
+      var v = Math.round(lo + (hi - lo) * k / 4), y = Y(v).toFixed(1);
+      grid += '<line x1="' + L + '" y1="' + y + '" x2="' + (W - R) + '" y2="' + y + '" stroke="rgba(255,255,255,.07)" stroke-width="1"/>';
+      grid += '<text x="' + (L - 6) + '" y="' + (parseFloat(y) + 3.5).toFixed(1) + '" fill="#7c8599" font-size="10" text-anchor="end">' + v + '</text>';
+    }
+
+    var meanY = Y(st.sum_mean).toFixed(1);
+    var bandTop = Y(st.sum_mean + st.sum_std).toFixed(1);
+    var bandBottom = Y(st.sum_mean - st.sum_std).toFixed(1);
+
+    var dots = '';
+    for (var j = 0; j < n; j++) {
+      var isLast = j === n - 1;
+      dots += '<circle cx="' + X(j).toFixed(1) + '" cy="' + Y(sums[j]).toFixed(1) + '" r="' + (isLast ? 4 : 2.2) + '" fill="' + (isLast ? '#ffd166' : '#ff4d5e') + '"/>';
+    }
+    var lastX = X(n - 1).toFixed(1), lastY = (Y(sums[n - 1]) - 10).toFixed(1);
+
+    return '' +
+      '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="和值走势">' +
+        '<defs>' +
+          '<linearGradient id="sumFill" x1="0" y1="0" x2="0" y2="1">' +
+            '<stop offset="0%" stop-color="rgba(255,77,94,.35)"/>' +
+            '<stop offset="100%" stop-color="rgba(255,77,94,0)"/>' +
+          '</linearGradient>' +
+        '</defs>' +
+        '<rect x="' + L + '" y="' + bandTop + '" width="' + (W - L - R) + '" height="' + Math.max(0, bandBottom - bandTop).toFixed(1) + '" fill="rgba(77,163,255,.06)"/>' +
+        grid +
+        '<line x1="' + L + '" y1="' + meanY + '" x2="' + (W - R) + '" y2="' + meanY + '" stroke="rgba(77,163,255,.55)" stroke-width="1" stroke-dasharray="4 4"/>' +
+        '<text x="' + (W - R) + '" y="' + (parseFloat(meanY) - 6).toFixed(1) + '" fill="#7fb4ff" font-size="10" text-anchor="end">均值 ' + st.sum_mean + '</text>' +
+        '<path d="' + area + '" fill="url(#sumFill)"/>' +
+        '<path d="' + path + '" fill="none" stroke="#ff5c6d" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>' +
+        dots +
+        '<text x="' + lastX + '" y="' + lastY + '" fill="#ffd166" font-size="10" text-anchor="end">' + sums[n - 1] + '</text>' +
+        '<text x="' + L + '" y="' + (H - 8) + '" fill="#7c8599" font-size="10">' + esc(dates[0]) + '</text>' +
+        '<text x="' + (W - R) + '" y="' + (H - 8) + '" fill="#7c8599" font-size="10" text-anchor="end">' + esc(dates[n - 1]) + '</text>' +
+      '</svg>';
+  }
+
+  function sumCard(g){
+    var st = g.stats;
+    var label = g.key === 'ssq' ? '红球和值走势' : '前区和值走势';
+    return '' +
+      '<div class="card chart-card">' +
+        '<div class="card-head"><h3>' + label + '</h3><span class="muted">近 ' + st.sums.length + ' 期 · 均值 ' + st.sum_mean + ' ± ' + st.sum_std + '</span></div>' +
+        sumSvg(g) +
+      '</div>';
+  }
+
+  function omitCard(g){
+    var arr = g.key === 'ssq' ? g.stats.red : g.stats.front;
+    var top = arr.slice().sort(function(a, b){ return b.omit - a.omit; }).slice(0, 8);
+    var max = Math.max.apply(null, top.map(function(t){ return t.omit; }).concat([1]));
+    return '' +
+      '<div class="card">' +
+        '<div class="card-head"><h3>遗漏榜</h3><span class="muted">距上次开出已过几期</span></div>' +
+        '<div class="omit-list">' + top.map(function(s){
+          return '<div class="omit-row">' +
+            '<span class="omit-num">' + pad2(s.n) + '</span>' +
+            '<div class="omit-bar"><i style="width:' + Math.round(s.omit / max * 100) + '%"></i></div>' +
+            '<span class="omit-val">' + s.omit + ' 期</span>' +
+          '</div>';
+        }).join('') + '</div>' +
+      '</div>';
+  }
+
+  function tableCard(g){
+    var head = g.key === 'ssq'
+      ? '<th>期号</th><th>开奖日期</th><th>开奖号码（红 + 蓝）</th><th>和值</th><th>奇偶</th><th>一等奖</th><th>单注奖金</th><th>奖池</th>'
+      : '<th>期号</th><th>开奖日期</th><th>开奖号码（前 + 后）</th><th>和值</th><th>奇偶</th><th>一等奖</th><th>单注奖金</th><th>奖池</th>';
+    var rows = g.draws.map(function(d){
+      var isSSQ = g.key === 'ssq';
+      var main = isSSQ ? d.reds : d.fronts;
+      var extra = isSSQ ? [d.blue] : d.backs;
+      var extraTone = isSSQ ? 'blue' : 'teal';
+      var sum = main.reduce(function(a, b){ return a + b; }, 0);
+      var odd = main.filter(function(x){ return x % 2; }).length;
+      return '<tr>' +
+        '<td class="issue">' + esc(d.issue) + '</td>' +
+        '<td class="date">' + esc(d.date) + '</td>' +
+        '<td><div class="nums">' + balls(main, 'red', 'xs') + '<span class="sep">+</span>' + balls(extra, extraTone, 'xs') + '</div></td>' +
+        '<td>' + sum + '</td>' +
+        '<td>' + odd + ':' + (main.length - odd) + '</td>' +
+        '<td>' + d.first_count + ' 注</td>' +
+        '<td class="money">' + yuan(d.first_amount) + '</td>' +
+        '<td class="money">' + money(d.pool) + '</td>' +
+      '</tr>';
+    }).join('');
+    return '' +
+      '<div class="card table-card">' +
+        '<div class="card-head"><h3>近三个月开奖记录</h3><span class="muted">' + esc(g.window.start) + ' ~ ' + esc(g.window.end) + ' · 共 ' + g.window.count + ' 期</span></div>' +
+        '<div class="table-wrap"><table><thead><tr>' + head + '</tr></thead><tbody>' + rows + '</tbody></table></div>' +
+      '</div>';
+  }
+
+  function theoryCard(g){
+    var st = g.stats, bt = st.backtest;
+    var isSSQ = g.key === 'ssq';
+    var tierRows = st.prize_table.map(function(p){
+      var amount = (typeof p.amount === 'number') ? yuan(p.amount) : p.amount;
+      return '<tr><td>' + esc(p.tier) + '</td><td>' + esc(p.condition) + '</td><td>' + esc(p.prob) + '</td><td>' + esc(amount) + '</td></tr>';
+    }).join('');
+
+    var btText = bt
+      ? '回测最近 ' + bt.draws + ' 期：每组推荐号码平均命中 <b>' + bt.avg_hits + '</b> 个' +
+        (isSSQ ? '红球' : '前区号码') + '，纯随机期望为 <b>' + bt.random + '</b> 个 —— 两者基本一致，说明模型没有、也不可能真正预测开奖。'
+      : '历史样本不足，暂未回测。';
+
+    return '' +
+      '<div class="card theory">' +
+        '<h3>期望值是怎么算的？</h3>' +
+        '<p>本页的「期望指数」不是中奖概率，而是对每一注号码的统计评分：先按三个维度给每个号码打分，再加总并做结构过滤，最后映射到 0–100 分（50 = 随机组合的平均水平）。</p>' +
+        '<div class="formula">' +
+          '号码得分 = 0.45 × 近期热度(z) + 0.35 × 遗漏回补(z) + 0.20 × 重号/邻号(z)\n' +
+          '组合得分 = 号码平均得分 × 0.9 − 0.6 × 结构偏离惩罚\n' +
+          '结构过滤：和值接近均值 · 奇偶均衡 · 三区覆盖 · 跨度合理 · 连号≤1 组\n' +
+          '热度 = 按 0.90^期龄 加权后的出现次数 / 理论期望次数' +
+        '</div>' +
+        '<h3>理论期望回报（按最新一期奖金估算）</h3>' +
+        '<div class="ev-grid">' +
+          '<div class="ev-box"><span>每注 2 元的理论期望回报</span><b class="gold">¥' + st.ev_avg.toFixed(2) + '</b></div>' +
+          '<div class="ev-box"><span>对应返奖率</span><b class="teal">' + st.ev_pct.toFixed(1) + '%</b></div>' +
+          '<div class="ev-box"><span>一等奖概率</span><b>' + esc(st.prize_table[0].prob) + '</b></div>' +
+        '</div>' +
+        '<p class="muted" style="font-size:12px">期望回报 = Σ(各奖级中奖概率 × 单注奖金)。一等奖、二等奖为浮动奖金，按最新一期实际金额估算；固定奖级按规则金额计算。长期看，任何号码组合的期望回报都相同且低于 2 元。</p>' +
+        '<div class="table-wrap" style="max-height:none;margin-top:12px">' +
+          '<table class="prize-table"><thead><tr><th>奖级</th><th>中奖条件</th><th>概率</th><th>单注奖金（最新一期）</th></tr></thead><tbody>' + tierRows + '</tbody></table>' +
+        '</div>' +
+        '<h3>历史回测</h3>' +
+        '<p>' + btText + '</p>' +
+        '<div class="disclaimer">' +
+          '<b>理性提示：</b>彩票每期开奖都是独立随机事件，历史号码不会影响下一期结果。本页所有「期望值」「热度」「遗漏」仅为数据统计与娱乐参考，<b>不构成任何中奖承诺</b>，也不存在能够稳定提高中奖率的选号方法。请量力而行、理性购彩；未满 18 周岁禁止购彩。' +
+        '</div>' +
+      '</div>';
+  }
+
+  /* ---------------- 渲染 ---------------- */
+  function render(key){
+    var g = DATA.games[key];
+    if (!g) return;
+    var buttons = document.querySelectorAll('#tabs button');
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].classList.toggle('active', buttons[i].dataset.game === key);
+    }
+    var latestDate = new Date(g.latest.date + 'T00:00:00');
+    var ageDays = Math.floor((Date.now() - latestDate.getTime()) / 86400000);
+    var stale = ageDays > 3
+      ? '<div class="stale-banner">⚠ 数据可能已过期：最新一期为 ' + esc(g.latest.date) + '（' + ageDays + ' 天前）。请运行「更新数据.bat」或等待每日自动更新。</div>'
+      : '';
+
+    app.innerHTML = '<section class="panel">' + stale +
+      '<div class="hero">' + countdownCard(g) + latestCard(g) + '</div>' +
+      combosSection(g) +
+      heatCard(g) +
+      '<div class="grid2">' + sumCard(g) + omitCard(g) + '</div>' +
+      tableCard(g) +
+      theoryCard(g) +
+    '</section>';
+    tick();
+  }
+
+  function switchGame(key){
+    if (!DATA.games[key]) key = 'ssq';
+    currentGame = key;
+    if (location.hash !== '#' + key) history.replaceState(null, '', '#' + key);
+    render(key);
+  }
+
+  document.getElementById('tabs').addEventListener('click', function(e){
+    var btn = e.target.closest('button[data-game]');
+    if (btn) switchGame(btn.dataset.game);
+  });
+  window.addEventListener('hashchange', function(){
+    switchGame((location.hash || '#ssq').slice(1));
+  });
+
+  /* ---------------- 页头状态 ---------------- */
+  function initMeta(){
+    var gen = DATA.generated_at || '--';
+    document.getElementById('genTime').textContent = gen;
+    document.getElementById('footTime').textContent = gen;
+    var t = new Date(gen.replace(' ', 'T')).getTime();
+    var mins = Math.max(0, Math.floor((Date.now() - t) / 60000));
+    var text, warn = false;
+    if (mins < 1) text = '刚刚更新';
+    else if (mins < 60) text = mins + ' 分钟前更新';
+    else if (mins < 60 * 24) text = Math.floor(mins / 60) + ' 小时前更新';
+    else { text = Math.floor(mins / 1440) + ' 天前更新'; warn = true; }
+    document.getElementById('dataAge').textContent = text;
+    if (warn) document.getElementById('ageDot').classList.add('warn');
+  }
+
+  function setNet(text, state){
+    var label = document.getElementById('netStatus');
+    var dot = document.getElementById('netDot');
+    if (label) label.textContent = text;
+    if (dot) dot.className = 'dot' + (state === 'warn' ? ' warn' : '') + (state === 'busy' ? ' busy' : '');
+  }
+
+  function showBanner(text, ms){
+    var bar = document.getElementById('offlineBar');
+    if (!bar) return;
+    bar.style.display = 'block';
+    bar.innerHTML = text;
+    if (ms) setTimeout(function(){ bar.style.display = 'none'; }, ms);
+  }
+
+  /* 每次进入页面：联网抓取最新开奖并重渲染 */
+  var netRetry = 0;
+  var netTimer = null;
+
+  function apiBase(){
+    if (location.protocol === 'file:') return null;
+    // 本机服务 / 局域网 IP:8765 / 公网隧道 → 同源相对地址
+    if (location.port === '8765') return '';
+    // 其他本地来源（如聊天预览窗口）→ 跨源访问本机服务
+    if (location.hostname === '127.0.0.1' || location.hostname === 'localhost') {
+      return 'http://127.0.0.1:8765';
+    }
+    // 公网 HTTPS 页面（trycloudflare 等）仍走同源，由隧道转发
+    return '';
+  }
+
+  function loadLanInfo(){
+    if (STATIC) return;
+    var base = apiBase();
+    if (base === null) return;
+    fetch(base + '/api/info', {cache: 'no-store'})
+      .then(function(resp){ return resp.json(); })
+      .then(function(info){
+        if (!info) return;
+        var isLocal = (location.port === '8765') || location.hostname === '127.0.0.1' || location.hostname === 'localhost';
+        if (isLocal && info.urls && info.urls.length) {
+          var lan = document.getElementById('lanUrl');
+          var lanRow = document.getElementById('lanRow');
+          if (lan && lanRow) {
+            lan.textContent = info.urls[0];
+            lan.href = info.urls[0];
+            lanRow.style.display = 'block';
+          }
+        }
+        if (info.public_url) {
+          var pub = document.getElementById('pubUrl');
+          var pubRow = document.getElementById('pubRow');
+          if (pub && pubRow) {
+            pub.textContent = info.public_url;
+            pub.href = info.public_url;
+            pubRow.style.display = 'block';
+          }
+        }
+      })
+      .catch(function(){});
+  }
+
+  function hideBanner(){
+    var bar = document.getElementById('offlineBar');
+    if (bar) bar.style.display = 'none';
+  }
+
+  function scheduleRetry(force){
+    if (netRetry >= 3) return;
+    netRetry += 1;
+    netTimer = setTimeout(function(){ onlineRefresh(force); }, 2000 * netRetry);
+  }
+
+  function issuesOf(data){
+    var out = [];
+    if (data && data.games) {
+      Object.keys(data.games).forEach(function(k){
+        out.push(k + ':' + (data.games[k].latest ? data.games[k].latest.issue : ''));
+      });
+    }
+    return out.join('|');
+  }
+
+  function onlineRefresh(force, silent){
+    var base = apiBase();
+    if (base === null) {
+      setNet('本地文件 · 未联网', 'warn');
+      showBanner('当前打开的是本地文件，数据不会自动更新。请双击 <b>查看网页.bat</b>，通过 <b>http://127.0.0.1:8765/</b> 打开联网版（每次进入自动抓取最新开奖）。');
+      return;
+    }
+    var localPreview = (location.hostname === '127.0.0.1' || location.hostname === 'localhost') && location.port !== '8765';
+    if (netTimer) clearTimeout(netTimer);
+    setNet(netRetry > 0 ? '正在重试连接…' : '正在联网更新…', 'busy');
+    var controller = window.AbortController ? new AbortController() : null;
+    var timer = setTimeout(function(){ if (controller) controller.abort(); }, 90000);
+    var query = '?refresh=1' + (force ? '&force=1' : '');
+    fetch(base + '/api/data' + query, {cache: 'no-store', signal: controller ? controller.signal : undefined})
+      .then(function(resp){
+        if (!resp.ok) throw new Error('HTTP ' + resp.status);
+        return resp.json();
+      })
+      .then(function(data){
+        clearTimeout(timer);
+        if (!data || !data.games) throw new Error('数据格式错误');
+        netRetry = 0;
+        var meta = data._meta || {};
+        var before = issuesOf(DATA);
+        var oldIssue = (DATA.games[currentGame] && DATA.games[currentGame].latest) ? DATA.games[currentGame].latest.issue : '';
+        DATA = data;
+        initMeta();
+        var changed = issuesOf(data) !== before;
+        if (!silent || changed) render(currentGame);
+        tick();
+        var newIssue = (DATA.games[currentGame] && DATA.games[currentGame].latest) ? DATA.games[currentGame].latest.issue : '';
+        if (meta.error) {
+          setNet('联网失败 · 显示缓存', 'warn');
+          showBanner('联网抓取失败：' + (meta.error || '未知错误') + '。页面显示上一次成功抓取的缓存数据，稍后会自动重试。');
+          scheduleRetry(force);
+        } else {
+          hideBanner();
+          setNet(meta.updated ? '已联网更新' : '数据已是最新', 'ok');
+          if (oldIssue && newIssue && oldIssue !== newIssue) {
+            showBanner('已获取最新一期：<b>第 ' + newIssue + ' 期</b>（' + DATA.games[currentGame].latest.date + '）', 5000);
+          }
+        }
+      })
+      .catch(function(err){
+        clearTimeout(timer);
+        var reason = (err && err.name === 'AbortError') ? '请求超时' : '无法连接数据服务';
+        setNet('联网失败 · 本地数据', 'warn');
+        showBanner(reason + '。' + (localPreview ? '请双击 <b>查看网页.bat</b> 启动本地服务，然后点击右上角状态重试。' : '请检查网络后点击右上角状态重试。') + ' 仍失败请查看 <b>logs/server.log</b>。');
+        scheduleRetry(force);
+      });
+  }
+
+  /* 静态部署（GitHub Pages）：从 data/site_data.json 拉取云端定时更新的数据 */
+  function staticRefresh(silent){
+    setNet(silent ? '检查云端更新…' : '正在获取云端数据…', 'busy');
+    fetch(DATA_URL + '?t=' + Date.now(), {cache: 'no-store'})
+      .then(function(resp){
+        if (!resp.ok) throw new Error('HTTP ' + resp.status);
+        return resp.json();
+      })
+      .then(function(data){
+        if (!data || !data.games) throw new Error('数据格式错误');
+        var before = issuesOf(DATA);
+        var oldIssue = (DATA.games[currentGame] && DATA.games[currentGame].latest) ? DATA.games[currentGame].latest.issue : '';
+        DATA = data;
+        initMeta();
+        var changed = issuesOf(data) !== before;
+        if (!silent || changed) render(currentGame);
+        tick();
+        var newIssue = (DATA.games[currentGame] && DATA.games[currentGame].latest) ? DATA.games[currentGame].latest.issue : '';
+        setNet('云端数据', 'ok');
+        if (changed && newIssue) {
+          showBanner('已更新至 <b>第 ' + newIssue + ' 期</b>（' + DATA.games[currentGame].latest.date + '）', 5000);
+        }
+      })
+      .catch(function(){
+        setNet('云端数据 · 离线', 'warn');
+      });
+  }
+
+  var netPill = document.getElementById('netPill');
+  if (netPill) {
+    netPill.addEventListener('click', function(){
+      if (STATIC) staticRefresh(false); else onlineRefresh(true);
+    });
+  }
+
+  initMeta();
+  switchGame((location.hash || '#ssq').slice(1));
+  setInterval(tick, 1000);
+  if (STATIC) {
+    var dn = document.getElementById('deployNote');
+    if (dn) dn.style.display = 'block';
+    var fm = document.getElementById('footerMode');
+    if (fm) fm.textContent = '云端定时自动更新';
+    var fe = document.getElementById('footerExtra');
+    if (fe) fe.style.display = 'none';
+    staticRefresh(false);
+    setInterval(function(){
+      if (document.visibilityState === 'visible') staticRefresh(true);
+    }, 5 * 60 * 1000);
+  } else {
+    loadLanInfo();
+    onlineRefresh();
+    // 页面打开期间每 10 分钟静默刷新一次（有新开奖才重渲染，避免打断阅读）
+    setInterval(function(){
+      if (document.visibilityState === 'visible') onlineRefresh(false, true);
+    }, 10 * 60 * 1000);
+  }
+})();
+</script>
+</body>
+</html>
